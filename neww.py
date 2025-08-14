@@ -6,9 +6,6 @@ from datetime import datetime
 import gc
 import time
 
-# Streamlit konfigürasyonu - büyük dosyalar için
-st.set_option('deprecation.showPyplotGlobalUse', False)
-
 def main():
     st.title("Doğalgaz Tüketim Sapma Analizi - Büyük Veri Optimizasyonlu")
     st.markdown("2023-2024 ortalamasından %30 fazla sapma gösteren tesisatları tespit edin")
