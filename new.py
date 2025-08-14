@@ -213,8 +213,7 @@ def calculate_historical_average_separate(df_2023, df_2024, tn_col, tuketim_col,
         monthly_avg = combined_df.groupby(['TN', 'Sozlesme_No'])['Tuketim'].mean().reset_index()
         monthly_avg.columns = ['TN', 'Sozlesme_No', 'Ortalama_Tuketim']
         
-        st.success(f"✅ {len(monthly_avg)} tesisat için ortalama hesaplandı")
-        
+            
         return monthly_avg
         
     except Exception as e:
@@ -232,8 +231,7 @@ def clean_data(df, tn_col, tuketim_col, tarih_col, sozlesme_col, expected_year):
         initial_count = len(df_clean)
         df_clean = df_clean.dropna()
         
-        if len(df_clean) < initial_count:
-            st.info(f"📝 {expected_year} verisinden {initial_count - len(df_clean)} boş kayıt temizlendi")
+    
         
         # Tarihi datetime'a çevir
         df_clean['Tarih'] = pd.to_datetime(df_clean['Tarih'], errors='coerce')
