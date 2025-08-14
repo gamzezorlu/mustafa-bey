@@ -300,29 +300,7 @@ def create_deviation_report(data, threshold):
         
         report_data.to_excel(writer, sheet_name=f'Sapma Raporu {threshold}%', index=False)
         
-        # Özet sayfa
-        summary_data = pd.DataFrame({
-            'Kriter': [
-                'Analiz Tarihi',
-                'Sapma Eşiği (%)',
-                'Toplam Sapma Gösteren Tesisat',
-                'Ortalama Sapma (%)',
-                'Maksimum Sapma (%)',
-                'Minimum Sapma (%)',
-                'Toplam Fazla Tüketim (m³)'
-            ],
-            'Değer': [
-                datetime.now().strftime('%Y-%m-%d %H:%M'),
-                f"{threshold}%",
-                len(data),
-                f"{data['Sapma_Yüzdesi'].mean():.1f}%",
-                f"{data['Sapma_Yüzdesi'].max():.1f}%",
-                f"{data['Sapma_Yüzdesi'].min():.1f}%",
-                f"{data['Sapma_Miktarı'].sum():.2f}"
-            ]
-        })
-        
-        summary_data.to_excel(writer, sheet_name='Özet', index=False)
+       
         
         # Format ayarları
         workbook = writer.book
