@@ -8,7 +8,7 @@ import time
 import os
 
 def main():
-    st.title("⚡ Süper Hızlı Doğalgaz Sapma Analizi")
+    st.title("Doğalgaz Sapma Analizi")
     st.markdown("800K+ satır için optimize edildi - Parquet + Memory Mapping")
     
     # Performans ayarları
@@ -38,7 +38,7 @@ def main():
     threshold = st.sidebar.slider("Sapma Eşiği (%)", 10, 100, 30)
     
     # Hızlı ön işleme seçenekleri
-    st.sidebar.header("⚡ Hızlandırma Seçenekleri")
+    st.sidebar.header("Hızlandırma Seçenekleri")
     
     # Sadece yüksek sapmaları analiz et
     quick_scan = st.sidebar.checkbox("Sadece yüksek sapmaları tara", value=False)
