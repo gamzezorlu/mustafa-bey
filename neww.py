@@ -34,11 +34,11 @@ if file_2023 and file_2024 and file_2025:
             for file in [file_2023, file_2024]:
                 for chunk in pd.read_csv(file, chunksize=50000):
                     df = chunk[[tn_col, tuketim_col, tarih_col, sozlesme_col]].copy()
-                    df.columns = ['TN','Tuketim','Tarih','Sozlesme_No']
-                    df['Tarih'] = pd.to_datetime(df['Tarih'], errors='coerce')
-                    df['Tuketim'] = pd.to_numeric(df['Tuketim'], errors='coerce')
-                    df = df.dropna(subset=['Tarih','Tuketim'])
-                    df = df[df['Tuketim'] > 0]
+                    df.columns = ['Tesisat','Tuketim M3','Belge tarihi','Sozlesme hes.']
+                    df['Tarih'] = pd.to_datetime(df['Belge tarihi'], errors='coerce')
+                    df['Tuketim'] = pd.to_numeric(df['Tuketim M3'], errors='coerce')
+                    df = df.dropna(subset=['Belge tarihi','Tuketim M3'])
+                    df = df[df['Tuketim M3'] > 0]
                     historical_avg.append(df)
 
             historical_df = pd.concat(historical_avg, ignore_index=True)
